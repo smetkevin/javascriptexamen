@@ -175,22 +175,17 @@ function initVerzonden() {
 // OPGAVE 10:
 function werpDobbelsteen() {
     //opgave 10 nog uitwerken.
-    let worp = Math.floor((Math.random()*6) + 1);
-
-    console.log(poging.gok);
+   let worp = Math.floor((Math.random()*6) + 1);
 
     let articles = document.getElementsByTagName("article");
     articles[poging.gok-1].style.display = "block";
 
     if(poging.isGewonnen()) {
-        console.log("jackpot");
-        let jackpot = document.querySelector('article img#jackpot');
-        console.log("document jackpot", jackpot);
+        let jackpot = document.querySelector("article img#jackpot").parentNode;
         jackpot.style.display = "block";
     }
     else {
-        console.log("verlies");
-        let verlies = document.querySelector('article img#verloren');
+        let verlies = document.querySelector('article img#verloren').parentNode;
         verlies.style.display = "block";
     }
 
