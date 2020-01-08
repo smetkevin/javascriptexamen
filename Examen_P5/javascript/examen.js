@@ -104,7 +104,7 @@ function wijzigKopEnVerbergArtikels() {
 
 // OPGAVE 7:
 class Beurt {
-    dobbelsteenWorp = 4;
+    dobbelsteenWorp = 0;
 
     constructor(naam, rijksregisternummer, gok) {
         this.naam = naam;
@@ -164,18 +164,18 @@ function getParam(name) {
 function initVerzonden() {
     window.addEventListener('load', wijzigKopEnVerbergArtikels, false);
     poging = new Beurt(getParam('naam'), getParam('rijksregister'), getParam('gok'));
+    window.addEventListener('load',werpDobbelsteen,false);
+
+    werpDobbelsteen();
 
     let textInput = document.getElementsByTagName('h3');
     textInput[0].innerHTML = poging.toString();
-
-    werpDobbelsteen();
-    window.addEventListener('load',werpDobbelsteen,false);
 }
 
 // OPGAVE 10:
 function werpDobbelsteen() {
     //opgave 10 nog uitwerken.
-   let worp = Math.floor((Math.random()*6) + 1);
+   poging.dobbelsteenWorp = Math.floor((Math.random()*6) + 1);
 
     let articles = document.getElementsByTagName("article");
     articles[poging.gok-1].style.display = "block";
